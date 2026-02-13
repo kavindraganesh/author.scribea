@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StarCrosed Scribea | Author</title>
 
 <!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Kaushan+Script&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
 <style>
 /* ---------- RESET ---------- */
 * {
@@ -19,7 +17,7 @@
 /* ---------- BODY ---------- */
 body {
     min-height: 100vh;
-    font-family: 'Cinzel', serif;
+    font-family: 'Playfair Display', serif;
     background: radial-gradient(circle at top, #2b0f3a, #120515, #050107);
     color: #ffffff;
     overflow-x: hidden;
@@ -52,46 +50,22 @@ body::before {
     text-shadow:
         0 0 15px rgba(139,92,246,0.6),
         0 0 35px rgba(139,92,246,0.4);
-    position: relative;
     margin-bottom: 25px;
-}
-
-/* Decorative stars */
-.author-name::before,
-.author-name::after {
-    content: "✦ ✧ ✦";
-    font-size: 1.2rem;
-    color: #c4a6ff;
-    margin: 0 12px;
-    opacity: 0.9;
 }
 
 /* ---------- TAGLINE ---------- */
 .tagline {
-    font-family: 'Great Vibes', cursive;
     font-size: clamp(1.2rem, 3vw, 1.6rem);
     font-style: italic;
-    line-height: 1.7;
     color: #f3e8ff;
     text-shadow:
         0 0 10px rgba(255,255,255,0.6),
         0 0 25px rgba(255,192,203,0.5);
-    max-width: 720px;
-    margin: auto;
     margin-bottom: 90px;
-}
-
-/* ---------- BOOK SECTION ---------- */
-.book-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 35px;
 }
 
 /* ---------- BOOK COVER ---------- */
 .book-cover {
-    width: 100%;
     max-width: 320px;
     border-radius: 18px;
     box-shadow:
@@ -101,128 +75,36 @@ body::before {
 
 /* ---------- BOOK TITLE ---------- */
 .book-title {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Cinzel Decorative', serif;
     font-size: clamp(1.8rem, 4vw, 2.4rem);
-    font-weight: 700;
     color: #ffffff;
-    text-align: center;
     text-shadow:
         0 0 10px rgba(34,197,94,0.8),
-        0 0 30px rgba(34,197,94,0.6),
-        0 0 50px rgba(34,197,94,0.4);
+        0 0 30px rgba(34,197,94,0.6);
     margin-top: 20px;
 }
 
 /* ---------- QUOTE ---------- */
 .book-quote {
-    font-size: 1.15rem;
-    font-style: italic;
     color: #f5c2d8;
-    text-align: center;
-    max-width: 650px;
-    line-height: 1.8;
+    font-style: italic;
     text-shadow:
         0 0 12px rgba(245,194,216,0.7),
         0 0 28px rgba(186,85,211,0.45);
+    margin-top: 15px;
 }
 
-/* ---------- LINK BUTTON ---------- */
+/* ---------- LINK ---------- */
 .book-link {
     margin-top: 25px;
+    display: inline-block;
     padding: 14px 38px;
     border-radius: 30px;
-    border: 1px solid rgba(255,255,255,0.7);
+    background: linear-gradient(135deg, #6b21a8, #be185d);
     color: #ffffff;
     text-decoration: none;
-    font-size: 0.95rem;
-    letter-spacing: 1px;
-    background: linear-gradient(
-        135deg,
-        rgba(88,28,135,0.8),
-        rgba(219,39,119,0.6)
-    );
     box-shadow:
-        0 0 20px rgba(219,39,119,0.5),
-        0 0 40px rgba(139,92,246,0.4);
-    transition: all 0.4s ease;
-}
-
-.book-link:hover {
-    transform: scale(1.05);
-    box-shadow:
-        0 0 30px rgba(34,197,94,0.8),
-        0 0 60px rgba(34,197,94,0.6);
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-    margin-top: 130px;
-    font-size: 0.85rem;
-    opacity: 0.6;
-}
-
-/* ---------- MOBILE ---------- */
-@media (max-width: 768px) {
-    .author-name::before,
-    .author-name::after {
-        display: block;
-        margin: 10px 0;
-    }
+        0 0 20px rgba(219,39,119,0.5);
 }
 </style>
 </head>
-
-<body>
-
-<div class="container">
-
-    <div class="author-name">
-        StarCrosed Scribea
-    </div>
-
-    <div class="tagline">
-        In this realm of stars;<br>
-        Every StarCrosed heart is bound to find it's love.
-    </div>
-
-    <div class="book-section">
-
-        <!-- BOOK COVER -->
-        <img 
-            src="PASTE_BOOK_COVER_IMAGE_URL_HERE"
-            alt="The Female Alpha's Human Mate Cover"
-            class="book-cover"
-        >
-
-        <!-- BOOK TITLE -->
-        <div class="book-title">
-            The Female Alpha's Human Mate
-        </div>
-
-        <!-- FAMOUS LINE -->
-        <div class="book-quote">
-            “When I fall in love;<br>
-            I want to fall apart.”
-        </div>
-
-        <!-- GOODNOVEL LINK -->
-        <a 
-            href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
-            target="_blank"
-            class="book-link"
-        >
-            Read Now
-        </a>
-
-    </div>
-
-    <footer>
-        © 2026 · StarCrosed Scribea · Written in starlight
-    </footer>
-
-</div>
-
-</body>
-</html>
-
-
