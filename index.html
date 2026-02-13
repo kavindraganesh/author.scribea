@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>StarCrosed Scribea | Author</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,500&family=Cinzel:wght@500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
 <style>
 /* ---------- RESET ---------- */
 * {
@@ -15,20 +18,20 @@
 
 /* ---------- BODY ---------- */
 body {
-    font-family: 'Georgia', serif;
-    background: linear-gradient(180deg, #050517, #0b0f2b, #000);
-    color: #f5f5f5;
     min-height: 100vh;
+    font-family: 'Playfair Display', serif;
+    background: radial-gradient(circle at top, #2b0f3a, #120515, #050107);
+    color: #ffffff;
     overflow-x: hidden;
 }
 
-/* ---------- STAR BACKGROUND ---------- */
+/* ---------- STAR OVERLAY ---------- */
 body::before {
     content: "";
     position: fixed;
     inset: 0;
     background: url("https://www.transparenttextures.com/patterns/stardust.png");
-    opacity: 0.4;
+    opacity: 0.45;
     z-index: -1;
 }
 
@@ -36,111 +39,134 @@ body::before {
 .container {
     max-width: 1100px;
     margin: auto;
-    padding: 80px 20px;
+    padding: 90px 20px;
     text-align: center;
 }
 
 /* ---------- AUTHOR NAME ---------- */
 .author-name {
-    font-size: clamp(2.4rem, 5vw, 3.5rem);
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.6rem, 5vw, 3.6rem);
     letter-spacing: 3px;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(255,255,255,0.35);
+    color: #8b5cf6;
+    text-shadow:
+        0 0 15px rgba(139,92,246,0.6),
+        0 0 35px rgba(139,92,246,0.4);
+    position: relative;
+    margin-bottom: 25px;
+}
+
+/* Decorative stars */
+.author-name::before,
+.author-name::after {
+    content: "✦ ✧ ✦";
+    font-size: 1.2rem;
+    color: #c4a6ff;
+    margin: 0 12px;
+    opacity: 0.9;
 }
 
 /* ---------- TAGLINE ---------- */
 .tagline {
-    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-family: 'Great Vibes', cursive;
+    font-size: clamp(1.2rem, 3vw, 1.6rem);
     font-style: italic;
-    opacity: 0.9;
-    line-height: 1.6;
-    max-width: 700px;
+    line-height: 1.7;
+    color: #f3e8ff;
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.6),
+        0 0 25px rgba(255,192,203,0.5);
+    max-width: 720px;
     margin: auto;
-    margin-bottom: 80px;
+    margin-bottom: 90px;
 }
 
 /* ---------- BOOK SECTION ---------- */
 .book-section {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 60px;
-    margin-top: 40px;
+    gap: 35px;
 }
 
 /* ---------- BOOK COVER ---------- */
 .book-cover {
     width: 100%;
     max-width: 320px;
-    margin: auto;
-    border-radius: 16px;
+    border-radius: 18px;
     box-shadow:
-        0 30px 60px rgba(255,255,255,0.15),
-        0 0 40px rgba(180,160,255,0.25);
-    transition: transform 0.5s ease;
+        0 30px 60px rgba(139,92,246,0.35),
+        0 0 50px rgba(255,182,193,0.25);
 }
 
-.book-cover:hover {
-    transform: scale(1.03);
-}
-
-/* ---------- BOOK CONTENT ---------- */
-.book-content {
-    text-align: left;
-}
-
+/* ---------- BOOK TITLE ---------- */
 .book-title {
-    font-size: clamp(1.6rem, 3vw, 2rem);
-    margin-bottom: 20px;
-    letter-spacing: 1px;
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 700;
+    color: #ffffff;
+    text-align: center;
+    text-shadow:
+        0 0 10px rgba(34,197,94,0.8),
+        0 0 30px rgba(34,197,94,0.6),
+        0 0 50px rgba(34,197,94,0.4);
+    margin-top: 20px;
 }
 
+/* ---------- QUOTE ---------- */
 .book-quote {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
     font-style: italic;
+    color: #f5c2d8;
+    text-align: center;
+    max-width: 650px;
     line-height: 1.8;
-    opacity: 0.95;
-    margin-bottom: 30px;
-    border-left: 2px solid rgba(255,255,255,0.3);
-    padding-left: 18px;
+    text-shadow:
+        0 0 12px rgba(245,194,216,0.7),
+        0 0 28px rgba(186,85,211,0.45);
 }
 
-/* ---------- BUTTON ---------- */
+/* ---------- LINK BUTTON ---------- */
 .book-link {
-    display: inline-block;
-    padding: 14px 36px;
+    margin-top: 25px;
+    padding: 14px 38px;
     border-radius: 30px;
     border: 1px solid rgba(255,255,255,0.7);
-    color: #fff;
+    color: #ffffff;
     text-decoration: none;
     font-size: 0.95rem;
     letter-spacing: 1px;
+    background: linear-gradient(
+        135deg,
+        rgba(88,28,135,0.8),
+        rgba(219,39,119,0.6)
+    );
+    box-shadow:
+        0 0 20px rgba(219,39,119,0.5),
+        0 0 40px rgba(139,92,246,0.4);
     transition: all 0.4s ease;
 }
 
 .book-link:hover {
-    background: rgba(255,255,255,0.95);
-    color: #000;
-    box-shadow: 0 0 25px rgba(255,255,255,0.6);
+    transform: scale(1.05);
+    box-shadow:
+        0 0 30px rgba(34,197,94,0.8),
+        0 0 60px rgba(34,197,94,0.6);
 }
 
 /* ---------- FOOTER ---------- */
 footer {
-    margin-top: 120px;
+    margin-top: 130px;
     font-size: 0.85rem;
     opacity: 0.6;
-    text-align: center;
 }
 
-/* ---------- MOBILE TWEAKS ---------- */
+/* ---------- MOBILE ---------- */
 @media (max-width: 768px) {
-    .book-content {
-        text-align: center;
-    }
-
-    .book-quote {
-        border-left: none;
-        padding-left: 0;
+    .author-name::before,
+    .author-name::after {
+        display: block;
+        margin: 10px 0;
     }
 }
 </style>
@@ -163,38 +189,40 @@ footer {
 
         <!-- BOOK COVER -->
         <img 
-            src="PASTE_BOOK_COVER_IMAGE_URL_HERE" 
-            alt="Book Cover"
+            src="PASTE_BOOK_COVER_IMAGE_URL_HERE"
+            alt="The Female Alpha's Human Mate Cover"
             class="book-cover"
         >
 
-        <!-- BOOK DETAILS -->
-        <div class="book-content">
-            <div class="book-title">
-                THE FEMALE ALPHA'S HUMAN MATE
-            </div>
-
-            <div class="book-quote">
-                “When I fall in love; I want to fall apart.<br>
-                Let it feel like destiny, longing, and stars.”
-            </div>
-
-            <a 
-                href="PASTE_BOOK_LINK_HERE" 
-                target="_blank"
-                class="book-link"
-            >
-                Enter the Story
-            </a>
+        <!-- BOOK TITLE -->
+        <div class="book-title">
+            The Female Alpha's Human Mate
         </div>
+
+        <!-- FAMOUS LINE -->
+        <div class="book-quote">
+            “When I fall in love;<br>
+            I want to fall apart.”
+        </div>
+
+        <!-- GOODNOVEL LINK -->
+        <a 
+            href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
+            target="_blank"
+            class="book-link"
+        >
+            Read on GoodNovel
+        </a>
 
     </div>
 
     <footer>
-        © 2026 · StarCrosed Scribea · Written among the stars
+        © 2026 · StarCrosed Scribea · Written in starlight
     </footer>
 
 </div>
 
 </body>
 </html>
+
+
