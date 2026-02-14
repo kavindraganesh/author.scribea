@@ -3,149 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>StarCrosed Scribea</title>
+<title>StarCrosed Scribea | Author</title>
 
 <!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Playfair+Display:ital@1&family=Libre+Baskerville:wght@700&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 
 <style>
-body {
+/* RESET */
+* {
   margin: 0;
   padding: 0;
-  background:
-    radial-gradient(circle at top, #3a1c4b, #0f2a2e),
-    linear-gradient(135deg, #4b1f3d, #1b3a3a);
-  color: #ffffff;
+  box-sizing: border-box;
 }
 
-/* Layout */
+/* BODY */
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #2a0a3d, #120015, #050007);
+  color: #ffffff;
+  font-family: 'Playfair Display', serif;
+  overflow-x: hidden;
+}
+
+/* STAR OVERLAY */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.45;
+  z-index: -1;
+}
+
+/* CONTAINER */
 .container {
-  max-width: 900px;
+  max-width: 1100px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 90px 20px;
+  text-align: center;
 }
 
 /* AUTHOR NAME */
 .author-name {
   font-family: 'Kaushan Script', cursive;
-  font-size: 3.8rem; /* ~22 */
-  text-align: center;
-  color: #e9ddff;
+  font-size: clamp(2.8rem, 6vw, 3.8rem);
+  color: #9b5cff;
   text-shadow:
-    0 0 10px #d8a0c7,
-    0 0 20px #b86aa1;
+    0 0 15px rgba(155,92,255,0.7),
+    0 0 40px rgba(155,92,255,0.5);
+  margin-bottom: 25px;
+  position: relative;
 }
 
+/* STARS AROUND NAME */
 .author-name::before,
 .author-name::after {
-  content: " ✦ ";
-  animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-  from { opacity: 0.4; }
-  to { opacity: 1; }
+  content: "* ✧ *";
+  font-size: 1.2rem;
+  color: #d6c3ff;
+  margin: 0 14px;
+  opacity: 0.9;
 }
 
 /* TAGLINE */
 .tagline {
-  margin-top: 15px;
-  text-align: center;
-  font-family: 'Playfair Display', cursive;
-  font-size: 1.1rem; /* ~18 */
   font-style: italic;
-  color: #ffffff;
-  text-shadow: 0 0 12px #ffffff;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  color: #f6eaff;
+  text-shadow:
+    0 0 10px rgba(255,255,255,0.6),
+    0 0 30px rgba(255,182,193,0.5);
+  max-width: 720px;
+  margin: auto;
+  margin-bottom: 90px;
+  line-height: 1.7;
 }
 
 /* BOOK SECTION */
 .book-section {
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  align-items: center;
+  gap: 35px;
 }
 
-@media (min-width: 768px) {
-  .book-section {
-    flex-direction: row;
-    align-items: center;
-  }
-}
-
-/* COVER */
+/* BOOK COVER */
 .book-cover {
-  max-width: 220px;
-  border-radius: 10px;
-  box-shadow: 0 0 25px rgba(58, 255, 200, 0.7);
+  width: 100%;
+  max-width: 320px;
+  border-radius: 18px;
+  box-shadow:
+    0 30px 60px rgba(155,92,255,0.35),
+    0 0 50px rgba(199,140,180,0.35);
 }
 
-/* DETAILS */
+/* BOOK TITLE */
 .book-title {
   font-family: 'Libre Baskerville', serif;
-  font-size: 1.4rem; /* ~20 */
+  font-weight: 700;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
   color: #ffffff;
-  text-shadow: 0 0 12px #3affc3;
-}
-
-.book-quote {
-  margin-top: 15px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem; /* ~16 */
-  color: #e4a2c4;
-  text-shadow: 0 0 10px #c978a3;
-}
-
-/* LINK */
-.book-link {
-  display: inline-block;
+  text-align: center;
+  text-shadow:
+    0 0 12px rgba(34,197,94,0.9),
+    0 0 35px rgba(34,197,94,0.6),
+    0 0 60px rgba(34,197,94,0.4);
   margin-top: 20px;
-  text-decoration: none;
+}
+
+/* QUOTE */
+.book-quote {
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #f4bfd6;
+  text-shadow:
+    0 0 14px rgba(244,191,214,0.7),
+    0 0 30px rgba(186,85,211,0.45);
+  max-width: 650px;
+  line-height: 1.8;
+  text-align: center;
+}
+
+/* BUTTON */
+.book-link {
+  margin-top: 25px;
+  padding: 14px 40px;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #6b1d87, #a61c5a);
   color: #ffffff;
-  border-bottom: 1px solid #3affc3;
-  text-shadow: 0 0 8px #3affc3;
+  text-decoration: none;
+  font-size: 0.95rem;
+  letter-spacing: 1px;
+  box-shadow:
+    0 0 20px rgba(166,28,90,0.6),
+    0 0 45px rgba(155,92,255,0.5);
+  transition: all 0.4s ease;
+}
+
+.book-link:hover {
+  transform: scale(1.06);
+  box-shadow:
+    0 0 30px rgba(34,197,94,0.9),
+    0 0 70px rgba(34,197,94,0.7);
+}
+
+/* FOOTER */
+footer {
+  margin-top: 130px;
+  font-size: 0.85rem;
+  opacity: 0.6;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .author-name::before,
+  .author-name::after {
+    display: block;
+    margin: 12px 0;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <div class="container">
 
-<h1 class="author-name">StarCrosed Scribea</h1>
+  <div class="author-name">
+    StarCrosed Scribea
+  </div>
 
-<p class="tagline">
-In this realm of stars; Every starcrosed heart is bound to find it's love.
-</p>
+  <div class="tagline">
+    In this realm of stars;<br>
+    Every StarCrosed heart is bound to find it's love.
+  </div>
 
-<div class="book-section">
+  <div class="book-section">
 
-<img
-  src="PASTE-YOUR-BOOK-COVER-URL-HERE"
-  alt="The Female Alpha's Human Mate cover"
-  class="book-cover"
-/>
+    <img
+      src="PASTE_BOOK_COVER_IMAGE_URL_HERE"
+      alt="The Female Alpha's Human Mate Cover"
+      class="book-cover"
+    >
 
-<div>
-  <h2 class="book-title">The Female Alpha's Human Mate</h2>
+    <div class="book-title">
+      The Female Alpha's Human Mate
+    </div>
 
-  <p class="book-quote">
-    “When I fall in love; I want to fall apart.”
-  </p>
+    <div class="book-quote">
+      “When I fall in love;<br>
+      I want to fall apart.”
+    </div>
 
-  <a
-    href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
-    target="_blank"
-    class="book-link"
-  >
-    Read on GoodNovel ✦
-  </a>
+    <a
+      href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
+      target="_blank"
+      class="book-link"
+    >
+      Read Now
+    </a>
+
+  </div>
+
+  <footer>
+    © 2026 · StarCrosed Scribea · Written in starlight
+  </footer>
+
 </div>
 
-</div>
-</div>
 </body>
 </html>
+
 
 
 
