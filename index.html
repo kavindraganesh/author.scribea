@@ -1,214 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>StarCrosed Scribea | Author</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<!-- Google Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville:wght@400;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+  <title>StarCrosed Scribea</title>
 
-<style>
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville:wght@700&family=Playfair+Display:ital@1&family=Cormorant+Garamond:ital@1&display=swap" rel="stylesheet">
 
-/* BODY */
-body {
-  min-height: 100vh;
-  background: radial-gradient(circle at top, #2a0a3d, #120015, #050007);
-  color: #ffffff;
-  font-family: 'Playfair Display', serif;
-  overflow-x: hidden;
-}
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #2b143f, #0d1b1e);
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+    }
 
-/* STAR OVERLAY */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: url("https://www.transparenttextures.com/patterns/stardust.png");
-  opacity: 0.45;
-  z-index: -1;
-}
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 40px 20px;
+    }
 
-/* CONTAINER */
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 90px 20px;
-  text-align: center;
-}
+    /* AUTHOR NAME */
+    .author-name {
+      font-family: 'Kaushan Script', cursive;
+      font-size: 3.5rem;
+      text-align: center;
+      color: #e6d6ff;
+      text-shadow: 0 0 8px #d8a1c4, 0 0 16px #b46aa3;
+      position: relative;
+    }
 
-/* AUTHOR NAME */
-.author-name {
-  font-family: 'Kaushan Script', cursive;
-  font-size: clamp(2.8rem, 6vw, 3.8rem);
-  color: #9b5cff;
-  text-shadow:
-    0 0 15px rgba(155,92,255,0.7),
-    0 0 40px rgba(155,92,255,0.5);
-  margin-bottom: 25px;
-  position: relative;
-}
+    .author-name::before,
+    .author-name::after {
+      content: "✦ ✧";
+      color: #e6d6ff;
+      margin: 0 10px;
+      animation: twinkle 2s infinite alternate;
+    }
 
-/* STARS AROUND NAME */
-.author-name::before,
-.author-name::after {
-  content: "✦ ✧ ✦";
-  font-size: 1.2rem;
-  color: #d6c3ff;
-  margin: 0 14px;
-  opacity: 0.9;
-}
+    @keyframes twinkle {
+      from { opacity: 0.4; }
+      to { opacity: 1; }
+    }
 
-/* TAGLINE */
-.tagline {
-   font-size: clamp(1.2rem, 3vw, 1.6rem);
-    font-style: italic;
-    color: #f3e8ff;
-    text-shadow:
-        0 0 10px rgba(255,255,255,0.6),
-        0 0 25px rgba(255,192,203,0.5);
-    margin-bottom: 90px;
-}
+    /* TAGLINE */
+    .tagline {
+      text-align: center;
+      margin-top: 15px;
+      font-style: italic;
+      font-size: 1.1rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px #ffffff;
+    }
 
-/* BOOK SECTION */
-.book-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 35px;
-}
+    /* BOOK SECTION */
+    .book-section {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin-top: 50px;
+    }
 
-/* BOOK COVER */
-.book-cover {
-  width: 100%;
-  max-width: 320px;
-  border-radius: 18px;
-  box-shadow:
-    0 30px 60px rgba(155,92,255,0.35),
-    0 0 50px rgba(199,140,180,0.35);
-}
+    @media (min-width: 768px) {
+      .book-section {
+        flex-direction: row;
+        align-items: center;
+      }
+    }
 
-/* BOOK TITLE */
-.book-title {
-  font-family: 'Libre Baskerville', serif;
-  font-weight: 700;
-  font-size: clamp(1.8rem, 4vw, 2.5rem);
-  color: #ffffff;
-  text-align: center;
-  text-shadow:
-    0 0 12px rgba(34,197,94,0.9),
-    0 0 35px rgba(34,197,94,0.6),
-    0 0 60px rgba(34,197,94,0.4);
-  margin-top: 20px;
-}
+    .book-cover {
+      max-width: 220px;
+      border-radius: 10px;
+      box-shadow: 0 0 25px rgba(0, 255, 170, 0.6);
+    }
 
-/* QUOTE */
-.book-quote {
-  font-style: italic;
-  font-size: 1.15rem;
-  color: #f4bfd6;
-  text-shadow:
-    0 0 14px rgba(244,191,214,0.7),
-    0 0 30px rgba(186,85,211,0.45);
-  max-width: 650px;
-  line-height: 1.8;
-  text-align: center;
-}
+    .book-details {
+      flex: 1;
+    }
 
-/* BUTTON */
-.book-link {
-  margin-top: 25px;
-  padding: 14px 40px;
-  border-radius: 30px;
-  background: linear-gradient(135deg, #6b1d87, #a61c5a);
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  letter-spacing: 1px;
-  box-shadow:
-    0 0 20px rgba(166,28,90,0.6),
-    0 0 45px rgba(155,92,255,0.5);
-  transition: all 0.4s ease;
-}
+    .book-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.5rem;
+      color: #ffffff;
+      text-shadow: 0 0 10px #3affc3;
+    }
 
-.book-link:hover {
-  transform: scale(1.06);
-  box-shadow:
-    0 0 30px rgba(34,197,94,0.9),
-    0 0 70px rgba(34,197,94,0.7);
-}
+    .book-quote {
+      margin-top: 15px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      color: #e6a0c4;
+      text-shadow: 0 0 10px #c97aa5;
+    }
 
-/* FOOTER */
-footer {
-  margin-top: 130px;
-  font-size: 0.85rem;
-  opacity: 0.6;
-}
+    .book-link {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #ffffff;
+      border-bottom: 1px solid #3affc3;
+      text-shadow: 0 0 8px #3affc3;
+    }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .author-name::before,
-  .author-name::after {
-    display: block;
-    margin: 12px 0;
-  }
-}
-</style>
+    .book-link:hover {
+      opacity: 0.8;
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
 
-<div class="container">
+    <h1 class="author-name">StarCrosed Scribea</h1>
 
-  <div class="author-name">
-    StarCrosed Scribea
-  </div>
+    <p class="tagline">
+      In this realm of stars; Every starcrosed heart is bound to find it's love.
+    </p>
 
-  <div class="tagline">
-    In this realm of stars;<br>
-    Every StarCrosed heart is bound to find it's love.
-  </div>
+    <div class="book-section">
 
-  <div class="book-section">
+      <!-- 🔁 REPLACE src WITH YOUR IMAGE URL -->
+      <img
+        src="PASTE-YOUR-BOOK-COVER-URL-HERE"
+        alt="The Female Alpha's Human Mate book cover"
+        class="book-cover"
+      />
 
-    <img
-      src="https://github.com/kavindraganesh/author.scribea/blob/main/WhatsApp%20Image%202026-02-09%20at%208.53.11%20PM%20(1).jpeg?raw=true"
-      alt="The Female Alpha's Human Mate Cover"
-      class="book-cover"
-    >
+      <div class="book-details">
+        <h2 class="book-title">The Female Alpha's Human Mate</h2>
 
-    <div class="book-title">
-      The Female Alpha's Human Mate<br>
-      Book 1 of Moonlit Mates Triology
+        <p class="book-quote">
+          “When I fall in love; I want to fall apart.”
+        </p>
+
+        <a
+          href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
+          target="_blank"
+          class="book-link"
+        >
+          Read Now✦
+        </a>
+      </div>
+
     </div>
 
-    <div class="book-quote">
-      “When I fall in love;<br>
-      I want to fall apart.”
-    </div>
-
-    <a
-      href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
-      target="_blank"
-      class="book-link"
-    >
-      Read Now
-    </a>
-
   </div>
-
-  <footer>
-    © 2026 · StarCrosed Scribea · Written in starlight
-  </footer>
-
-</div>
-
 </body>
 </html>
+
 
