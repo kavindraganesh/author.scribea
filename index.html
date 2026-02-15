@@ -61,7 +61,10 @@ body {
   font-family: 'Kaushan Script', cursive;
   font-size: 4rem;
   color: #e6dcff;
-  text-shadow: 0 0 8px rgba(247, 182, 204, 0.5);
+   text-shadow:
+    0 0 6px rgba(247,182,204,0.7),
+    0 0 14px rgba(247,182,204,0.45),
+    0 0 24px rgba(247,182,204,0.25);
 }
 
 #tagline {
@@ -69,16 +72,17 @@ body {
   font-size: 2rem;
   margin-top: 15px;
   color: #ffffff;
-  text-shadow: 0 0 6px rgba(255,255,255,0.4);
-  position: relative;
-  padding: 20px;
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.8),
+    0 0 16px rgba(255,255,255,0.35);
+   padding: 20px;
 }
 
 #tagline::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+  background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 50%);
   z-index: -1;
 }
 
@@ -108,7 +112,9 @@ body {
   font-size: 2.6rem;
   margin-top: 25px;
   color: #ffffff;
-  text-shadow: 0 0 8px rgba(141, 254, 159, 0.4);
+  text-shadow:
+    0 0 8px rgba(141,254,159,0.6),
+    0 0 18px rgba(141,254,159,0.35);
 }
 
 /* ===== FAMOUS LINE ===== */
@@ -117,7 +123,9 @@ body {
   font-size: 2.3rem;
   margin-top: 20px;
   color: #f2b9cb;
-  text-shadow: 0 0 6px rgba(242,185,203,0.4);
+  text-shadow:
+    0 0 6px rgba(242,185,203,0.7),
+    0 0 16px rgba(242,185,203,0.4);
   padding: 20px;
   position: relative;
 }
@@ -126,7 +134,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(255,255,255,0.04), transparent 75%);
+  background: radial-gradient(circle, rgba(255,255,255,0.04), transparent 60%);
   z-index: -1;
 }
 
@@ -140,13 +148,15 @@ body {
   text-decoration: none;
   color: white;
   background: linear-gradient(45deg, #7b1fa2, #c2185b);
-  box-shadow: 0 8px 20px rgba(244,143,177,0.3);
+  box-shadow: 0 0 15px rgba(244,143,177,0.5),
+    0 8px 25px rgba(0,0,0,0.4);
   transition: all 0.3s ease;
 }
 
 #bookBtn:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 25px rgba(255,255,255,0.4);
+  box-shadow: 0 0 25px rgba(255,255,255,0.6),
+    0 12px 30px rgba(0,0,0,0.5);
 }
 
 </style>
