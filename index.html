@@ -2,218 +2,226 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>StarCrosed Sribea</title>
+<title>StarCrosed Scribea</title>
 
-<!-- Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Herr+Von+Muellerhoff&family=Libre+Baskerville:wght@400;700&family=Italianno&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville:wght@400;700&family=Italianno&family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --lavender:#e6dcff;
-  --deep-purple:#140926;
-  --dark-teal:#0f3b3a;
-  --rose:#d46a7e;
-  --glow-pink:rgba(216,120,150,.7);
-  --glow-green:rgba(120,200,170,.6);
-  --white-glow:rgba(255,255,255,.9);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* BASE */
-body{
-  margin:0;
+body {
   background:
-    radial-gradient(circle at top, #30145f, var(--deep-purple) 60%),
-    linear-gradient(180deg, var(--deep-purple), var(--dark-teal));
-  color:white;
-  overflow-x:hidden;
+    radial-gradient(circle at top, #2b1a3d, #0f2e2e 70%);
+  color: white;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  overflow-x: hidden;
 }
 
-/* ================= AUTHOR NAME STARS ================= */
-.name-wrap{
-  position:relative;
-  display:inline-block;
+/* ---------- STAR FIELD ---------- */
+.stars {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 300px;
+  pointer-events: none;
 }
 
-.name-stars{
-  position:absolute;
-  inset:-40px;
-  background:
-    radial-gradient(2px 2px at 10% 30%, #fff, transparent),
-    radial-gradient(2px 2px at 80% 20%, #fff, transparent),
-    radial-gradient(2px 2px at 50% 80%, #fff, transparent),
-    radial-gradient(2px 2px at 90% 60%, #fff, transparent);
-  animation:twinkle 4s infinite alternate;
-  opacity:.9;
-  pointer-events:none;
-}
-@keyframes twinkle{
-  from{opacity:.4;}
-  to{opacity:1;}
+.star {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #e6c8ff;
+  border-radius: 50%;
+  animation: twinkle 3s infinite ease-in-out;
 }
 
-/* ================= HERO ================= */
-.hero{
-  padding:150px 20px 120px;
-  text-align:center;
+@keyframes twinkle {
+  0%,100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.6); }
 }
 
-.name{
-  font-family:"Kaushan Script", cursive;
-  font-size:4.4rem;
-  color:var(--lavender);
-  text-shadow:0 0 22px var(--glow-pink), 0 0 50px rgba(230,220,255,.4);
-  position:relative;
-  z-index:2;
+/* ---------- AUTHOR NAME ---------- */
+.hero {
+  padding-top: 140px;
+  position: relative;
 }
 
-/* ================= TAGLINE ================= */
-.tagline-wrap{
-  position:relative;
-  display:inline-block;
-  padding:70px 90px;
-  margin-top:50px;
+.author {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 4rem;
+  color: #e6d4ff;
+  text-shadow: 0 0 18px rgba(255,182,193,0.6);
 }
 
-/* Moon Goddess Silhouette (outline) */
-.tagline-wrap::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:
-    radial-gradient(circle at center, rgba(255,255,255,.12), transparent 65%);
-  opacity:.25;
+/* ---------- TAGLINE ---------- */
+.tagline-wrapper {
+  position: relative;
+  margin: 60px auto;
+  max-width: 900px;
 }
 
-.tagline{
-  font-family:"Herr Von Muellerhoff", cursive;
-  font-size:3rem;
-  text-shadow:0 0 20px var(--white-glow);
-  position:relative;
-  z-index:2;
+.tagline {
+  font-family: 'Herr Von Muellerhoff', cursive;
+  font-size: 2.4rem;
+  padding: 50px;
+  z-index: 2;
+  position: relative;
+  text-shadow: 0 0 12px rgba(255,255,255,0.6);
 }
 
-/* ================= BOOK SECTION ================= */
-.book{
-  text-align:center;
-  padding-bottom:160px;
-  position:relative;
+/* Wolf outline behind text */
+.tagline-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/8/8a/Wolf_silhouette.svg")
+    center/contain no-repeat;
+  opacity: 0.08;
+  z-index: 1;
 }
 
-/* ROSE RUNES */
+/* ---------- BOOK SECTION ---------- */
+.section {
+  padding: 120px 20px;
+}
+
+.book {
+  max-width: 350px;
+  margin: 0 auto;
+  box-shadow: 0 0 35px rgba(0,255,180,0.4);
+}
+
+.book img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Rune corner effect */
 .book::before,
-.book::after{
-  content:"";
-  position:absolute;
-  width:140px;
-  height:140px;
-  background:
-    repeating-linear-gradient(
-      45deg,
-      transparent 0 10px,
-      rgba(212,106,126,.45) 11px 12px
-    );
-  opacity:.5;
-}
-.book::before{
-  top:80px; left:30px;
-}
-.book::after{
-  bottom:80px; right:30px;
+.book::after {
+  content: "❀ ❀ ❀";
+  position: absolute;
+  font-size: 1.4rem;
+  color: rgba(255,182,193,0.35);
 }
 
-/* COVER */
-.cover{
-  width:300px;
-  margin:0 auto 60px;
-  border-radius:16px;
-  box-shadow:0 0 35px var(--glow-green), 0 0 90px rgba(120,200,170,.45);
-}
-.cover img{
-  width:100%;
-  border-radius:16px;
+.book::before {
+  top: -25px;
+  left: -10px;
 }
 
-/* TITLE */
-.book-title{
-  font-family:"Libre Baskerville", serif;
-  font-size:2.6rem;
-  margin-bottom:40px;
-  text-shadow:0 0 18px var(--glow-green);
+.book::after {
+  bottom: -25px;
+  right: -10px;
 }
 
-/* WOLF OUTLINE BACKGROUND */
-.quote-wrap{
-  position:relative;
-  display:inline-block;
+/* ---------- BOOK TITLE ---------- */
+.book-title {
+  margin-top: 40px;
+  font-size: 2.2rem;
+  color: white;
+  text-shadow: 0 0 16px rgba(0,255,180,0.6);
 }
 
-.quote-wrap::before{
-  content:"";
-  position:absolute;
-  inset:-80px;
-  background:
-    radial-gradient(circle at bottom, rgba(255,255,255,.12), transparent 70%);
-  opacity:.35;
+/* ---------- FAMOUS LINE ---------- */
+.quote {
+  margin-top: 50px;
+  font-family: 'Italianno', cursive;
+  font-size: 2.6rem;
+  color: #ffb6c1;
+  text-shadow: 0 0 14px rgba(255,105,180,0.8);
 }
 
-/* BOOK LINE (STRONG COLOR) */
-.line{
-  font-family:"Italianno", cursive;
-  font-size:2.8rem;
-  color:#ff9bb0; /* STRONGER, VISIBLE */
-  text-shadow:0 0 22px var(--glow-pink);
-  position:relative;
-  z-index:2;
-  margin-bottom:80px;
+/* ---------- BUTTON ---------- */
+.button {
+  margin-top: 60px;
 }
 
-/* BUTTON */
-.btn{
-  padding:18px 60px;
-  border:1px solid rgba(216,120,150,.7);
-  text-decoration:none;
-  color:white;
-  box-shadow:0 0 25px var(--glow-pink);
+.button a {
+  padding: 14px 34px;
+  border-radius: 40px;
+  background: linear-gradient(135deg,#ffb6c1,#6ee7c8);
+  color: #2b1a3d;
+  text-decoration: none;
+  font-weight: bold;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.button a:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 25px rgba(255,182,193,0.8);
+}
+
+/* ---------- SCROLL REVEAL ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: 1s ease;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <div class="name-wrap">
-    <div class="name-stars"></div>
-    <div class="name">StarCrosed Sribea</div>
-  </div>
+<!-- Stars -->
+<div class="stars">
+  <div class="star" style="top:40px; left:20%"></div>
+  <div class="star" style="top:80px; left:30%"></div>
+  <div class="star" style="top:60px; left:50%"></div>
+  <div class="star" style="top:100px; left:65%"></div>
+  <div class="star" style="top:50px; left:80%"></div>
+</div>
 
-  <div class="tagline-wrap">
-    <div class="tagline">
-      In this realm of stars; Every starcrosed heart is to bound to find it's love.
-    </div>
-  </div>
-</section>
+<div class="hero">
+  <div class="author">StarCrosed Scribea</div>
+</div>
 
-<section class="book">
-  <div class="cover">
+<div class="tagline-wrapper reveal">
+  <div class="tagline">
+    In this realm of stars; Every starcrosed heart is bound to find its love.
+  </div>
+</div>
+
+<div class="section reveal">
+  <div class="book">
     <img src="https://github.com/kavindraganesh/author.scribea/blob/main/WhatsApp%20Image%202026-02-09%20at%208.53.11%20PM%20(1).jpeg?raw=true">
   </div>
 
-  <div class="book-title">The Female Alpha's Human Mate.</div>
-
-  <div class="quote-wrap">
-    <div class="line">
-      When I fall in love; I want to fall apart.
-    </div>
+  <div class="book-title">
+    The Female Alpha's Human Mate
   </div>
 
-  <a class="btn"
-     href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
-     target="_blank">
-     Enter The Realm
-  </a>
-</section>
+  <div class="quote">
+    “When I fall in love; I want to fall apart.”
+  </div>
+
+  <div class="button">
+    <a href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3" target="_blank">
+      Enter The Realm
+    </a>
+  </div>
+</div>
+
+<script>
+const reveals = document.querySelectorAll('.reveal');
+window.addEventListener('scroll', () => {
+  reveals.forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight - 80) {
+      el.classList.add('active');
+    }
+  });
+});
+</script>
 
 </body>
 </html>
