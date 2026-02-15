@@ -2,11 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>StarCrosed Scribea</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Libre+Baskerville:wght@400;700&family=Italianno&family=Herr+Von+Muellerhoff&display=swap" rel="stylesheet">
+<!-- GOOGLE FONTS -->
+<link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Herr+Von+Muellerhoff&family=Italianno&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
+
+/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
@@ -14,217 +17,181 @@
 }
 
 body {
-  background:
-    radial-gradient(circle at top, #2b1a3d, #0f2e2e 70%);
-  color: white;
-  text-align: center;
+  min-height: 100vh;
   font-family: 'Libre Baskerville', serif;
+  background: linear-gradient(to bottom, #3d0066, #0f3d3e);
+  color: #fff;
   overflow-x: hidden;
 }
 
-/* ---------- STAR FIELD ---------- */
-.stars {
-  position: absolute;
-  top: 0;
+/* STARRY SKY */
+#stars {
+  position: fixed;
   width: 100%;
-  height: 300px;
-  pointer-events: none;
+  height: 100%;
+  z-index: 0;
+  background: transparent;
 }
 
 .star {
   position: absolute;
-  width: 4px;
-  height: 4px;
-  background: #e6c8ff;
+  width: 3px;
+  height: 3px;
+  background: #fff;
   border-radius: 50%;
+  opacity: 0.8;
   animation: twinkle 3s infinite ease-in-out;
 }
 
 @keyframes twinkle {
-  0%,100% { opacity: 0.3; transform: scale(1); }
-  50% { opacity: 1; transform: scale(1.6); }
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.9; }
 }
 
-/* ---------- AUTHOR NAME ---------- */
-.hero {
-  padding-top: 140px;
+/* HEADER & TEXT STYLES */
+.header-container {
   position: relative;
-}
-
-.author {
-  font-family: 'Kaushan Script', cursive;
-  font-size: 4rem;
-  color: #e6d4ff;
-  text-shadow: 0 0 18px rgba(255,182,193,0.6);
-}
-
-/* ---------- TAGLINE ---------- */
-.tagline-wrapper {
-  position: relative;
-  margin: 60px auto;
-  max-width: 900px;
-}
-
-.tagline {
-  font-family: 'Herr Von Muellerhoff', cursive;
-  font-size: 2.4rem;
-  padding: 50px;
+  text-align: center;
+  margin-top: 60px;
   z-index: 2;
-  position: relative;
-  text-shadow: 0 0 12px rgba(255,255,255,0.6);
 }
 
-/* Wolf outline behind text */
-.tagline-wrapper::before {
+#authorName {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 4.2rem;
+  color: #DCD6F7;
+  text-shadow: 0 0 10px #F7C6D0, 0 0 20px #F7C6D0;
+}
+
+#tagline {
+  font-family: 'Herr Von Muellerhoff', cursive;
+  font-size: 1.9rem;
+  color: #fff;
+  text-shadow: 0 0 12px #fff, 0 0 22px #fff;
+  margin-top: 12px;
+  position: relative;
+}
+
+#tagline::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("https://upload.wikimedia.org/wikipedia/commons/8/8a/Wolf_silhouette.svg")
-    center/contain no-repeat;
-  opacity: 0.08;
-  z-index: 1;
+  background: url('https://cdn.pixabay.com/photo/2016/11/29/09/32/celestial-1868729_1280.jpg') center / cover no-repeat;
+  opacity: 0.07;
 }
 
-/* ---------- BOOK SECTION ---------- */
-.section {
-  padding: 120px 20px;
-}
-
-.book {
-  max-width: 350px;
-  margin: 0 auto;
-  box-shadow: 0 0 35px rgba(0,255,180,0.4);
-}
-
-.book img {
-  width: 100%;
-  border-radius: 10px;
-}
-
-/* Rune corner effect */
-.book::before,
-.book::after {
-  content: "❀ ❀ ❀";
-  position: absolute;
-  font-size: 1.4rem;
-  color: rgba(255,182,193,0.35);
-}
-
-.book::before {
-  top: -25px;
-  left: -10px;
-}
-
-.book::after {
-  bottom: -25px;
-  right: -10px;
-}
-
-/* ---------- BOOK TITLE ---------- */
-.book-title {
-  margin-top: 40px;
-  font-size: 2.2rem;
-  color: white;
-  text-shadow: 0 0 16px rgba(0,255,180,0.6);
-}
-
-/* ---------- FAMOUS LINE ---------- */
-.quote {
-  margin-top: 50px;
-  font-family: 'Italianno', cursive;
-  font-size: 2.6rem;
-  color: #ffb6c1;
-  text-shadow: 0 0 14px rgba(255,105,180,0.8);
-}
-
-/* ---------- BUTTON ---------- */
-.button {
+/* BOOK COVER SECTION */
+.book-section {
   margin-top: 60px;
+  text-align: center;
+  z-index: 2;
 }
 
-.button a {
-  padding: 14px 34px;
-  border-radius: 40px;
-  background: linear-gradient(135deg,#ffb6c1,#6ee7c8);
-  color: #2b1a3d;
+.book-img {
+  width: 320px;
+  border: 6px solid #8DFE9F;
+  border-radius: 18px;
+  box-shadow: 0 0 28px #8DFE9F;
+}
+
+/* BOOK TITLE */
+#bookTitle {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2.8rem;
+  margin-top: 22px;
+  color: #fff;
+  text-shadow: 0 0 12px #8DFE9F, 0 0 22px #8DFE9F;
+}
+
+/* FAMOUS LINE */
+#famousLine {
+  font-family: 'Italianno', cursive;
+  font-size: 2.4rem;
+  margin-top: 18px;
+  color: #F0B8C9;
+  text-shadow: 0 0 10px #F0B8C9, 0 0 20px #F0B8C9;
+  position: relative;
+}
+
+#famousLine::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url('https://cdn.pixabay.com/photo/2017/05/31/19/36/celtic-2358351_1280.jpg') center / cover no-repeat;
+  opacity: 0.06;
+}
+
+/* BUTTON */
+#bookBtn {
+  display: inline-block;
+  margin-top: 36px;
+  padding: 14px 28px;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.25rem;
+  color: #fff;
+  background: #9C27B0;
+  border: 2px solid #F48FB1;
+  border-radius: 30px;
+  box-shadow: 0 0 18px #F48FB1, 0 0 28px #F48FB1;
   text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: 0.3s ease;
 }
 
-.button a:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 25px rgba(255,182,193,0.8);
+#bookBtn:hover {
+  background: #F48FB1;
+  color: #3d0066;
+  box-shadow: 0 0 26px #fff, 0 0 36px #fff;
 }
 
-/* ---------- SCROLL REVEAL ---------- */
-.reveal {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: 1s ease;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
 </style>
+<title>StarCrosed Sribea ✨</title>
 </head>
-
 <body>
 
-<!-- Stars -->
-<div class="stars">
-  <div class="star" style="top:40px; left:20%"></div>
-  <div class="star" style="top:80px; left:30%"></div>
-  <div class="star" style="top:60px; left:50%"></div>
-  <div class="star" style="top:100px; left:65%"></div>
-  <div class="star" style="top:50px; left:80%"></div>
-</div>
-
-<div class="hero">
-  <div class="author">StarCrosed Scribea</div>
-</div>
-
-<div class="tagline-wrapper reveal">
-  <div class="tagline">
-    In this realm of stars; Every starcrosed heart is bound to find its love.
-  </div>
-</div>
-
-<div class="section reveal">
-  <div class="book">
-    <img src="https://github.com/kavindraganesh/author.scribea/blob/main/WhatsApp%20Image%202026-02-09%20at%208.53.11%20PM%20(1).jpeg?raw=true">
-  </div>
-
-  <div class="book-title">
-    The Female Alpha's Human Mate
-  </div>
-
-  <div class="quote">
-    “When I fall in love; I want to fall apart.”
-  </div>
-
-  <div class="button">
-    <a href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3" target="_blank">
-      Enter The Realm
-    </a>
-  </div>
-</div>
+<!-- STARS -->
+<div id="stars"></div>
 
 <script>
-const reveals = document.querySelectorAll('.reveal');
-window.addEventListener('scroll', () => {
-  reveals.forEach(el => {
-    if (el.getBoundingClientRect().top < window.innerHeight - 80) {
-      el.classList.add('active');
-    }
-  });
-});
+  // generate random star positions
+  const starCount = 190;
+  const starDiv = document.getElementById("stars");
+  for (let i = 0; i < starCount; i++) {
+    const star = document.createElement("div");
+    star.className = "star";
+    star.style.top = Math.random() * 100 + "%";
+    star.style.left = Math.random() * 100 + "%";
+    star.style.animationDuration = (1 + Math.random() * 3) + "s";
+    starDiv.appendChild(star);
+  }
 </script>
+
+<!-- HEADER -->
+<div class="header-container">
+  <h1 id="authorName">StarCrosed Sribea</h1>
+  <p id="tagline">In this realm of stars; Every starcrosed heart is to bound to find it's love.</p>
+</div>
+
+<!-- BOOK COVER -->
+<div class="book-section">
+  <img class="book-img" src="https://github.com/kavindraganesh/author.scribea/blob/main/WhatsApp%20Image%202026-02-09%20at%208.53.11%20PM%20(1).jpeg?raw=true" alt="Book Cover">
+  <h2 id="bookTitle">The Female Alpha's Human Mate</h2>
+</div>
+
+<!-- FAMOUS LINE -->
+<div class="book-section">
+  <p id="famousLine">“When I fall in love; I want to fall apart.”</p>
+</div>
+
+<!-- BUTTON -->
+<div class="book-section">
+  <a id="bookBtn" href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3" target="_blank">
+    Visit My Book Page
+  </a>
+</div>
 
 </body>
 </html>
+
 
 
 
