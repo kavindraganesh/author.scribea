@@ -4,12 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- GOOGLE FONTS -->
 <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Herr+Von+Muellerhoff&family=Italianno&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
 
-/* GLOBAL RESET */
 * {
   margin: 0;
   padding: 0;
@@ -19,173 +17,168 @@
 body {
   min-height: 100vh;
   font-family: 'Libre Baskerville', serif;
-  background: linear-gradient(to bottom, #3d0066, #0f3d3e);
-  color: #fff;
+  background: linear-gradient(to bottom, #4b007d 45%, #0e3f40 100%);
+  color: white;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* STARRY SKY */
+/* ===== BACKGROUND STARS ===== */
 #stars {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  background: transparent;
+  z-index: -1; /* pushed fully to background */
+  pointer-events: none;
 }
 
 .star {
   position: absolute;
-  width: 3px;
-  height: 3px;
-  background: #fff;
+  width: 2px;
+  height: 2px;
+  background: white;
   border-radius: 50%;
-  opacity: 0.8;
-  animation: twinkle 3s infinite ease-in-out;
+  opacity: 0.6;
+  animation: twinkle 4s infinite ease-in-out;
 }
 
 @keyframes twinkle {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.9; }
+  0%,100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
 }
 
-/* HEADER & TEXT STYLES */
+/* ===== HEADER ===== */
 .header-container {
-  position: relative;
   text-align: center;
-  margin-top: 60px;
+  padding-top: 80px;
+  position: relative;
   z-index: 2;
 }
 
 #authorName {
   font-family: 'Kaushan Script', cursive;
-  font-size: 4.2rem;
-  color: #DCD6F7;
-  text-shadow: 0 0 10px #F7C6D0, 0 0 20px #F7C6D0;
+  font-size: 4rem;
+  color: #e6dcff;
+  text-shadow: 0 0 8px rgba(247, 182, 204, 0.5);
 }
 
 #tagline {
   font-family: 'Herr Von Muellerhoff', cursive;
-  font-size: 1.9rem;
-  color: #fff;
-  text-shadow: 0 0 12px #fff, 0 0 22px #fff;
-  margin-top: 12px;
+  font-size: 2rem;
+  margin-top: 15px;
+  color: #ffffff;
+  text-shadow: 0 0 6px rgba(255,255,255,0.4);
   position: relative;
+  padding: 20px;
 }
 
-#tagline::before {
+#tagline::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://cdn.pixabay.com/photo/2016/11/29/09/32/celestial-1868729_1280.jpg') center / cover no-repeat;
-  opacity: 0.07;
+  background: radial-gradient(circle, rgba(255,255,255,0.05), transparent 70%);
+  z-index: -1;
 }
 
-/* BOOK COVER SECTION */
+/* ===== BOOK SECTION ===== */
 .book-section {
-  margin-top: 60px;
   text-align: center;
+  margin-top: 60px;
+  padding-bottom: 40px;
+  position: relative;
   z-index: 2;
 }
 
 .book-img {
   width: 320px;
-  border: 6px solid #8DFE9F;
-  border-radius: 18px;
-  box-shadow: 0 0 28px #8DFE9F;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(141, 254, 159, 0.25); /* soft elevated glow */
+  transition: transform 0.4s ease;
 }
 
-/* BOOK TITLE */
+.book-img:hover {
+  transform: translateY(-8px);
+}
+
+/* ===== BOOK TITLE ===== */
 #bookTitle {
   font-family: 'Libre Baskerville', serif;
-  font-size: 2.8rem;
-  margin-top: 22px;
-  color: #fff;
-  text-shadow: 0 0 12px #8DFE9F, 0 0 22px #8DFE9F;
+  font-size: 2.6rem;
+  margin-top: 25px;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(141, 254, 159, 0.4);
 }
 
-/* FAMOUS LINE */
+/* ===== FAMOUS LINE ===== */
 #famousLine {
   font-family: 'Italianno', cursive;
-  font-size: 2.4rem;
-  margin-top: 18px;
-  color: #F0B8C9;
-  text-shadow: 0 0 10px #F0B8C9, 0 0 20px #F0B8C9;
+  font-size: 2.3rem;
+  margin-top: 20px;
+  color: #f2b9cb;
+  text-shadow: 0 0 6px rgba(242,185,203,0.4);
+  padding: 20px;
   position: relative;
 }
 
-#famousLine::before {
+#famousLine::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: url('https://cdn.pixabay.com/photo/2017/05/31/19/36/celtic-2358351_1280.jpg') center / cover no-repeat;
-  opacity: 0.06;
+  background: radial-gradient(circle, rgba(255,255,255,0.04), transparent 75%);
+  z-index: -1;
 }
 
-/* BUTTON */
+/* ===== BUTTON ===== */
 #bookBtn {
   display: inline-block;
-  margin-top: 36px;
-  padding: 14px 28px;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 1.25rem;
-  color: #fff;
-  background: #9C27B0;
-  border: 2px solid #F48FB1;
+  margin-top: 35px;
+  padding: 14px 30px;
+  font-size: 1.2rem;
   border-radius: 30px;
-  box-shadow: 0 0 18px #F48FB1, 0 0 28px #F48FB1;
   text-decoration: none;
-  transition: 0.3s ease;
+  color: white;
+  background: linear-gradient(45deg, #7b1fa2, #c2185b);
+  box-shadow: 0 8px 20px rgba(244,143,177,0.3);
+  transition: all 0.3s ease;
 }
 
 #bookBtn:hover {
-  background: #F48FB1;
-  color: #3d0066;
-  box-shadow: 0 0 26px #fff, 0 0 36px #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255,255,255,0.4);
 }
 
 </style>
-<title>StarCrosed Sribea ✨</title>
+<title>StarCrosed Sribea</title>
 </head>
 <body>
 
-<!-- STARS -->
 <div id="stars"></div>
 
 <script>
-  // generate random star positions
-  const starCount = 190;
-  const starDiv = document.getElementById("stars");
-  for (let i = 0; i < starCount; i++) {
-    const star = document.createElement("div");
-    star.className = "star";
-    star.style.top = Math.random() * 100 + "%";
-    star.style.left = Math.random() * 100 + "%";
-    star.style.animationDuration = (1 + Math.random() * 3) + "s";
-    starDiv.appendChild(star);
-  }
+const starContainer = document.getElementById("stars");
+for (let i = 0; i < 160; i++) {
+  const star = document.createElement("div");
+  star.className = "star";
+  star.style.top = Math.random() * 100 + "%";
+  star.style.left = Math.random() * 100 + "%";
+  star.style.animationDuration = (2 + Math.random() * 3) + "s";
+  starContainer.appendChild(star);
+}
 </script>
 
-<!-- HEADER -->
 <div class="header-container">
   <h1 id="authorName">StarCrosed Sribea</h1>
   <p id="tagline">In this realm of stars; Every starcrosed heart is to bound to find it's love.</p>
 </div>
 
-<!-- BOOK COVER -->
 <div class="book-section">
-  <img class="book-img" src="https://github.com/kavindraganesh/author.scribea/blob/main/WhatsApp%20Image%202026-02-09%20at%208.53.11%20PM%20(1).jpeg?raw=true" alt="Book Cover">
-  <h2 id="bookTitle">The Female Alpha's Human Mate</h2>
-</div>
-
-<!-- FAMOUS LINE -->
-<div class="book-section">
+  <img class="book-img" src="WhatsApp Image 2026-02-09 at 8.53.11 PM (1).jpeg" alt="Book Cover">
+  <h2 id="bookTitle">The Female Alpha's Human Mate.</h2>
   <p id="famousLine">“When I fall in love; I want to fall apart.”</p>
-</div>
-
-<!-- BUTTON -->
-<div class="book-section">
   <a id="bookBtn" href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3" target="_blank">
-    Visit My Book Page
+    Enter the Realm
   </a>
 </div>
 
