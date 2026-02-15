@@ -22,18 +22,6 @@ body {
   background: linear-gradient(to bottom, #4b007d 45%, #0e3f40 100%);
   color: white;
   overflow-x: hidden;
-  position: relative;
-}
-
-/* ===== CONTAINER ===== */
-.wrapper {
-  width: 100%;
-  max-width: 1200px;
-  margin: auto;
-  padding: 60px 20px 80px 20px;
-  text-align: center;
-  position: relative;
-  z-index: 2;
 }
 
 /* ===== STARS ===== */
@@ -59,79 +47,96 @@ body {
   50% { opacity: 0.85; }
 }
 
-/* ===== AUTHOR NAME ===== */
-#authorName {
-  font-family: 'Kaushan Script', cursive;
-  font-size: clamp(2.4rem, 8vw, 4rem);
-  color: #E6DCFF;
-  text-shadow:
-    0 0 6px rgba(247,182,204,0.7),
-    0 0 14px rgba(247,182,204,0.45),
-    0 0 24px rgba(247,182,204,0.25);
+/* ===== HERO SECTION (FIRST SCREEN) ===== */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
 }
 
-/* ===== TAGLINE ===== */
+/* Author Name */
+#authorName {
+  font-family: 'Kaushan Script', cursive;
+  font-size: clamp(2.5rem, 9vw, 4.5rem);
+  color: #E6DCFF;
+  text-shadow:
+    0 0 8px rgba(247,182,204,0.8),
+    0 0 20px rgba(247,182,204,0.5),
+    0 0 35px rgba(247,182,204,0.3);
+}
+
+/* Tagline */
 #tagline {
   font-family: 'Herr Von Muellerhoff', cursive;
-  font-size: clamp(1.4rem, 5vw, 2.2rem);
-  margin-top: 18px;
+  font-size: clamp(1.5rem, 6vw, 2.4rem);
+  margin-top: 20px;
   line-height: 1.4;
   text-shadow:
-    0 0 12px #ffffff,
-    0 0 24px rgba(255,255,255,0.8),
+    0 0 15px #ffffff,
+    0 0 30px rgba(255,255,255,0.8),
     0 0 60px rgba(255,255,255,0.6);
   filter: drop-shadow(0 0 20px white);
 }
 
-/* ===== BOOK SECTION ===== */
-.book-section {
-  margin-top: 60px;
+/* ===== SCROLL INDICATOR ===== */
+.scroll-hint {
+  position: absolute;
+  bottom: 30px;
+  font-size: 0.9rem;
+  opacity: 0.7;
 }
 
-/* Responsive image */
+/* ===== BOOK SECTION ===== */
+.book-section {
+  padding: 80px 20px 100px 20px;
+  text-align: center;
+}
+
+/* Smaller book cover */
 .book-img {
-  width: 100%;
-  max-width: 340px;
+  width: 65%;
+  max-width: 220px;
   height: auto;
-  border-radius: 16px;
+  border-radius: 14px;
   box-shadow:
-    0 15px 35px rgba(0,0,0,0.5),
-    0 0 35px rgba(141,254,159,0.35);
+    0 12px 30px rgba(0,0,0,0.5),
+    0 0 30px rgba(141,254,159,0.4);
   transition: transform 0.4s ease;
 }
 
 .book-img:hover {
-  transform: translateY(-8px);
+  transform: translateY(-6px);
 }
 
-/* ===== BOOK TITLE ===== */
+/* Book Title */
 #bookTitle {
-  font-family: 'Libre Baskerville', serif;
-  font-size: clamp(1.6rem, 5vw, 2.6rem);
+  font-size: clamp(1.5rem, 5vw, 2.4rem);
   margin-top: 25px;
   text-shadow:
     0 0 10px rgba(141,254,159,0.6),
     0 0 20px rgba(141,254,159,0.35);
 }
 
-/* ===== FAMOUS LINE ===== */
+/* Famous Line */
 #famousLine {
   font-family: 'Italianno', cursive;
-  font-size: clamp(1.6rem, 6vw, 2.4rem);
-  margin-top: 20px;
+  font-size: clamp(1.6rem, 6vw, 2.3rem);
+  margin-top: 18px;
   color: #f2b9cb;
   text-shadow:
     0 0 8px rgba(242,185,203,0.7),
     0 0 18px rgba(242,185,203,0.4);
-  line-height: 1.3;
-  padding: 10px 0;
 }
 
-/* ===== BUTTON ===== */
+/* Button */
 #bookBtn {
   display: inline-block;
   margin-top: 35px;
-  padding: 14px 32px;
+  padding: 14px 30px;
   font-size: 1rem;
   border-radius: 30px;
   text-decoration: none;
@@ -150,19 +155,10 @@ body {
     0 15px 35px rgba(0,0,0,0.6);
 }
 
-/* ===== LAPTOP ENHANCEMENT ===== */
+/* Desktop refinement */
 @media (min-width: 768px) {
-
-  .wrapper {
-    padding-top: 100px;
-  }
-
-  .book-section {
-    margin-top: 80px;
-  }
-
-  #bookBtn {
-    font-size: 1.15rem;
+  .book-img {
+    max-width: 260px;
   }
 }
 
@@ -173,35 +169,35 @@ body {
 
 <div id="stars"></div>
 
-<div class="wrapper">
-
+<!-- HERO FIRST SCREEN -->
+<section class="hero">
   <h1 id="authorName">StarCrosed Sribea</h1>
-
   <p id="tagline">
     In this realm of stars; Every starcrosed heart is to bound to find it's love.
   </p>
+  <div class="scroll-hint">Scroll ↓</div>
+</section>
 
-  <div class="book-section">
-    <img class="book-img" src="WhatsApp Image 2026-02-09 at 8.53.11 PM (1).jpeg" alt="Book Cover">
+<!-- BOOK SECTION AFTER SCROLL -->
+<section class="book-section">
+  <img class="book-img" src="WhatsApp Image 2026-02-09 at 8.53.11 PM (1).jpeg" alt="Book Cover">
 
-    <h2 id="bookTitle">The Female Alpha's Human Mate.</h2>
+  <h2 id="bookTitle">The Female Alpha's Human Mate.</h2>
 
-    <p id="famousLine">
-      “When I fall in love; I want to fall apart.”
-    </p>
+  <p id="famousLine">
+    “When I fall in love; I want to fall apart.”
+  </p>
 
-    <a id="bookBtn"
-       href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
-       target="_blank">
-       Read Now!
-    </a>
-  </div>
-
-</div>
+  <a id="bookBtn"
+     href="https://www.novelol.com/goodnovel/share?bid=31001154085&uid=143221144&l=bookDetail&sc=fxrw_0_bookDetail&rd=3&type=3"
+     target="_blank">
+     Read Now!
+  </a>
+</section>
 
 <script>
 const starContainer = document.getElementById("stars");
-for (let i = 0; i < 150; i++) {
+for (let i = 0; i < 140; i++) {
   const star = document.createElement("div");
   star.className = "star";
   star.style.top = Math.random() * 100 + "%";
@@ -213,6 +209,7 @@ for (let i = 0; i < 150; i++) {
 
 </body>
 </html>
+
 
 
 
